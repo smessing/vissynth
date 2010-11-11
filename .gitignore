@@ -1,0 +1,4 @@
+# exclude latex's .log, .aux and synctex files:
+*.log
+*.aux
+*.synctex.gz
