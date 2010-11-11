@@ -28,28 +28,31 @@ following:
 \end{enumerate}
 
 We will then use the ON/OFF sequences as input to the synthesizer
-in the following manner. Each column of a grid represents a time
+in the following manner. Each column of the grid represents a time
 point (i.e. column 1 = time 1, column 2 = time 2, etc.), such that
 all of the squares within a given column will be played at the
 same time. Each row corresponds to a particular frequency, with
 lower rows representing lower tones and higher rows representing
 higher tones.
 
-Our group would like to design a program that functions as a
-visual synthesizer. We intend to take input from a web camera and
-use this input to drive a musical synthesizer. To achieve this, we
-will separate the image into a grid, which will roughly correspond
-to the grid of a synthesizer: an array of buttons, where columns
-represent "time steps", every ON button in each column goes off at
-the same time point, and the rows represent frequencies, with
-lower rows representing lower tones and higher rows representing
-higher tones. The program will decide which squares of the grid
-are ON and which are OFF based on the following process:
+The program will take a grid based on a image, and step through
+each time point (each column) sequentially, playing each tone
+corresponding to an ON square at the same time. The rate at which
+the program takes photos from the webcam will be proportional to
+the amount of time it takes to step through one image. So, for
+example, if each image has ten columns and each column plays for
+.2 seconds, our program will take a new photo once every 2
+seconds, or at a rate of 0.5Hz.
 
-\begin{enumerate}
-  \item turn the contrast all the way up on the image
-  \item count up the number of white and black pixels within each square of the grid
-  \item for each square, mark that square as ON if there are more white than black pixels, OFF otherwise.
-\end{enumerate}
+In addition, the program will display the given grid being
+operated on at each time step (using ncurses or some other
+library), highlighting the column currently being played.
+
+Because of the design of this project, we have several different
+modules that individuals in the group can work on, including
+talking to the camera, writing to the screen, producing sound, and
+processing the actual images. This will enable us to clearly
+delineate responsibilities and construct series of deadlines to
+reach.
 
 \end{document}
