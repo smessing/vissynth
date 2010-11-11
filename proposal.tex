@@ -15,10 +15,10 @@ produced by the synthesizer.
 To accomplish this, we will use the OpenCV library to handle
 talking to the webcam. We intend to have our program save
 individual images from the camera at a given rate (e.g. 10 Hz),
-and then have our program operate on the images in the appropriate
-sequence (first image in time will be read first, followed by
-second, third, etc.) instead of attempting to handle live input
-from the camera.
+and then have our program operate on the images in the
+appropriate sequence (first image in time will be read first,
+followed by second, third, etc.) instead of attempting to handle
+live input from the camera.
 
 For every image saved, the program will do (roughly) the
 following:
@@ -31,12 +31,12 @@ following:
 \end{enumerate}
 
 We will then use the ON/OFF sequences as input to the synthesizer
-in the following manner. Each column of the grid represents a time
-point (i.e. column 1 = time 1, column 2 = time 2, etc.), such that
-all of the squares within a given column will be played at the
-same time. Each row corresponds to a particular frequency, with
-lower rows representing lower tones and higher rows representing
-higher tones.
+in the following manner. Each column of the grid represents a
+time point (i.e. column 1 = time 1, column 2 = time 2, etc.),
+such that all of the squares within a given column will be played
+at the same time. Each row corresponds to a particular frequency,
+with lower rows representing lower tones and higher rows
+representing higher tones.
 
 The program will take a grid based on a image, and step through
 each time point (each column) sequentially, playing each tone
@@ -53,9 +53,9 @@ library), highlighting the column currently being played.
 
 Because of the design of this project, we have several different
 modules that individuals in the group can work on, including
-talking to the camera, writing to the screen, producing sound, and
-processing the actual images. This will enable us to clearly
-delineate responsibilities and construct series of deadlines to
+talking to the camera, writing to the screen, producing sound,
+and processing the actual images. This will enable us to clearly
+delineate responsibilities and construct a series of deadlines to
 reach.
 
 % section project_description (end)
@@ -69,7 +69,7 @@ reach.
 \begin{enumerate}
 
 \item Talking to the camera: be able to access a webcam, and save
-files in an ordered fashion.
+images in an ordered fashion.
 
 \item Drawing to the screen: be able to draw a grid object to the
 screen.
