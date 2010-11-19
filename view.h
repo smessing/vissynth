@@ -15,4 +15,5 @@ public:
     void play_col(vector<bool> to_play);
 };
 
+
 #endif
