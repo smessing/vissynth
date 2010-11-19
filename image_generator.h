@@ -18,4 +18,4 @@ void pullImage();
 void transformImage();
 
 // Dequeue next bit rep:
-BitRep* nextRep();
+bit_rep* nextRep();
