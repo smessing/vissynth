@@ -10,3 +10,11 @@
 #include "image_generator.h"
 #include "sound_generator.h"
 #include "view.h"
+
+using namespace std;
+
+// Starts the vissynth:
+void start() {
+    
+}
+
