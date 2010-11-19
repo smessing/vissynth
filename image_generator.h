@@ -8,3 +8,14 @@
 * Yui
 */
 
+// Initialize camera:
+bool init();
+
+// Pull image in from camera:
+void pullImage();
+
+// Transform image into bit rep, add to queue:
+void transformImage();
+
+// Dequeue next bit rep:
+BitRep* nextRep();
