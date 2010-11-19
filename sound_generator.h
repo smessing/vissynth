@@ -4,6 +4,8 @@
 
 #include <vector>
 
+using namespace std;
+
 // Initialize sound device:
 bool init();
 
