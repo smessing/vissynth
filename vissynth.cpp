@@ -11,6 +11,9 @@
 #include "sound_generator.h"
 #include "view.h"
 
+#define MAX_BIT_REP_ROWS 100
+#define MAX_BIT_REP_COLS 100
+
 using namespace std;
 
 // Starts the vissynth:
