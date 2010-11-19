@@ -6,7 +6,7 @@
 #ifndef SOUND_GENERATOR_H
 #define SOUND_GENERATOR_H
 
-class Sound {
+class SoundGenerator {
 public:
     // Initialize sound device:
     bool init();

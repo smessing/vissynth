@@ -8,14 +8,22 @@
 * Yui
 */
 
-// Initialize camera:
-bool init();
+// Header Guards:
+#ifndef IMAGE_GENERATOR_H
+#define IMAGE_GENERATOR_H
 
-// Pull image in from camera:
-void pullImage();
+class ImageGenerator {
+    // Initialize camera:
+    bool init();
 
-// Transform image into bit rep, add to queue:
-void transformImage();
+    // Pull image in from camera:
+    void pullImage();
 
-// Dequeue next bit rep:
-bit_rep* nextRep();
+    // Transform image into bit rep, add to queue:
+    void transformImage();
+
+    // Dequeue next bit rep:
+    bit_rep* nextRep();
+};
+
+#endif

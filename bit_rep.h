@@ -2,10 +2,14 @@
 * bit_rep.h
 */
 
-#include <vector>
+// Head Guards:
+#ifndef BIT_REP_H
+#define BIT_REP_H
 
-using namespace std;
+class BitRep {
+public:
+    // Return next column for this bit_rep:
+    vector<bool> get_next_col();
+};
 
-// Return next column for this bit_rep:
-vector<bool> get_next_col();
-
+#endif
