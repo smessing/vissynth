@@ -2,12 +2,17 @@
 * view.h
 */
 
-#include <vector>
+// Header Guards:
+#ifndef VIEW_H
+#define VIEW_H
 
-using namespace std;
+class View {
+public:
+    // Initialize the view:
+    bool init();
 
-// Initialize the view:
-bool init();
+    // Play an individual column from a bit_rep:
+    void play_col(vector<bool> to_play);
+};
 
-// Play an individual column from a bit_rep:
-void play_col(vector<bool> to_play);
+#endif
