@@ -1,5 +1,5 @@
 /**
-*
+* sound_generator.h
 */
 
 #include <vector>
