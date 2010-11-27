@@ -18,6 +18,8 @@
 #include "cxtypes.h"
 #include "highgui.h"
 
+#include "bit_rep.h"
+
 using namespace cv;
 
 class ImageGenerator {
@@ -25,6 +27,9 @@ private:
     CvCapture* capture;
     IplImage* frame;
     IplImage* frameProcessed;
+
+    // Fill a provided bitrep with img's information
+    bool fillBitRep(IplImage* img, BitRep &br);
 
 public:
     ImageGenerator();
@@ -34,7 +39,7 @@ public:
     bool init();
 
     // Pull image in from camera:
-    bool pullImage();
+    bool pullImage(BitRep &br);
 
     /*
     // Transform image into bit rep, add to queue:

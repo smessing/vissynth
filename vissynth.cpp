@@ -25,13 +25,11 @@
 
 using namespace std;
 
-// Starts the vissynth:
-void start() {
-    
-}
-
 int main(int argc, char** argv) {
     ImageGenerator imgGen;
+    BitRep br(32, 24); // imgGen is parameterized by the size of br :)
+    int frameDelay = 200; // milliseconds to wait between processing frames
+
     if(!imgGen.init()) {
         fprintf(stderr, "Error initializing Image Generator - check webcam?\n");
         getchar();
@@ -40,15 +38,18 @@ int main(int argc, char** argv) {
    
     // Show the image captured from the camera in the window and repeat
     while(true) {
-        if(!imgGen.pullImage()) {
+        if(!imgGen.pullImage(br)) {
             fprintf(stderr, "Error pulling a frame from the webcam\n");
             getchar();
             return -1;
         }
 
-        // Wait 200 ms, then check if the key pressed is ESC
+        // print out the bitrep to the console - or play music with it! :)
+        br.display();
+
+        // Wait frameDelay ms, then check if the key pressed is ESC
         // If it is, then break
-        if((cvWaitKey(200) & 255) == 27)
+        if((cvWaitKey(frameDelay) & 255) == 27)
             break;
     }
 

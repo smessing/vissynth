@@ -17,6 +17,8 @@
 
 ImageGenerator::ImageGenerator() {
     // TODO
+    //frame = NULL;
+    //frameProcessed = NULL;
 }
 
 ImageGenerator::~ImageGenerator() {
@@ -40,11 +42,15 @@ bool ImageGenerator::init() {
     return true;
 }
 
-bool ImageGenerator::pullImage() {
+bool ImageGenerator::pullImage(BitRep &br) {
     // Grab a frame from the webcam - this must free the previous frame
+    //   because I don't free it anywhere, yet it magically doesn't leak :P
     frame = cvQueryFrame(capture);
     if(!frame)
         return false;
+
+    //if(frameProcessed != NULL)
+    //    cvReleaseImage(&frameProcessed);
 
     // Filter to black/white, threshold 128/255
     // http://stackoverflow.com/questions/1585535/convert-rgb-2-black-white-in-opencv
@@ -62,17 +68,33 @@ bool ImageGenerator::pullImage() {
     // Display the processed frame
     cvShowImage("Last Snapshot", frameProcessed);
 
-    // Convert the processed frame to a BitRep
-    uchar* pixelOrigin = (uchar *)frameProcessed->imageData;
-    for(int row = 0; row < frameProcessed->height; row+=8) {
-        for(int col = 0; col < frameProcessed->width; col+=8) {
-            printf("%c", pixelOrigin[row*frameProcessed->width + col] ? '8' : '.');
-        }
-        printf("\n");
-    }
+    if(!fillBitRep(frameProcessed, br))
+        return false;
     
     // After we've used the processed image, free it up
-    cvReleaseImage(&frameProcessed);
+    if(frameProcessed != NULL)
+        cvReleaseImage(&frameProcessed);
 
+    return true;
+}
+
+bool ImageGenerator::fillBitRep(IplImage *img, BitRep &br) {
+    if(frameProcessed == NULL)
+        return false;
+
+    uchar* pixelOrigin = (uchar *)img->imageData;
+    int brRows = br.getRows();
+    int brCols = br.getCols();
+    int imgHeight = img->height;
+    int imgWidth = img->width;
+    int stepRow = imgHeight / br.getRows();
+    int stepCol = imgWidth / br.getCols();
+
+    for(int row = 0; row < brRows; row++) {
+        for(int col = 0; col < brCols; col++) {
+            //br.setBit(row, col, pixelOrigin[(int)(row+.5)*stepRow*imgWidth + (int)(col+.5)*stepCol] > 0);
+            br.setBit(row, col, pixelOrigin[row*stepRow*imgWidth + col*stepCol] > 0);
+        }
+    }
     return true;
 }
