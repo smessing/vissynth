@@ -20,6 +20,7 @@ int main() {
     FMOD_RESULT     result;
     unsigned int    version;
     void            *buff = 0;
+    bool            bIsPlaying = true;
     // Create a System object and initialize.
     result = FMOD::System_Create(&system);
     ERRCHECK(result);
@@ -31,10 +32,13 @@ int main() {
     result = system->createSound("5.wav", FMOD_SOFTWARE, 0, &sound1);
     ERRCHECK(result);
     // Set volume:
-    channel->setVolume(0.5f);
+//    channel->setVolume(0.5f);
     // Play sound:
     result = system->playSound(FMOD_CHANNEL_FREE, sound1, false, &channel);
-    system->update();
+    while (bIsPlaying) {
+        system->update();
+        channel->isPlaying(&bIsPlaying);
+    }
     // Shutdown:
     result = sound1->release();
     ERRCHECK(result);
