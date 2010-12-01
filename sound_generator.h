@@ -7,12 +7,16 @@
 #define SOUND_GENERATOR_H
 
 class SoundGenerator {
+private:
+    // FMOD STUFF
+    // CHECK OTHER PROJECT
 public:
+    SoundGenerator();
+    ~SoundGenerator();
     // Initialize sound device:
     bool init();
-
     // Play an individual column from a bit_rep:
-    void play_col(vector<bool> to_play);
+    void play(vector<bool> to_play);
 };
 
 #endif

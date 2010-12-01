@@ -14,21 +14,19 @@ class BitRep {
 private:
     int rows;
     int cols;
+    int currentCol;
     vector< vector<bool> > map;
-
 public:
     BitRep(int width, int height);
-
-    // Return next column for this bit_rep:
-    //vector<bool> get_next_col();
-
     int getRows();
     int getCols();
-
+    int getCurrentCol();
     void setBit(int row, int col, bool value);
     bool getBit(int row, int col);
-
     void display();
+    vector<bool> getCurrentVector();
+    void incrementCol();
+    bool last();
 };
 
 #endif

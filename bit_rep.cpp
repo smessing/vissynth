@@ -2,10 +2,14 @@
 
 BitRep::BitRep(int width, int height) : rows(height), cols(width) {
     map = vector< vector<bool> >(rows, vector<bool>(cols, 0));
+    currentCol = 0;
 }
 
 int BitRep::getRows() { return rows; }
+
 int BitRep::getCols() { return cols; }
+
+int BitRep::getCurrentCol() { return currentCol; }
 
 void BitRep::setBit(int row, int col, bool value) {
     map[row][col] = value;
@@ -22,4 +26,13 @@ void BitRep::display() {
         }
         printf("\n");
     }
+}
+
+vector<bool> getCurrentVector() { return map[currentCol]; }
+
+void incrementCol() { currentCol++; }
+
+bool last() { 
+    if (currentCol == cols - 1) return true;
+    return false;
 }
