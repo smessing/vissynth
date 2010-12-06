@@ -38,10 +38,8 @@ private:
 public:
     SoundGenerator();
     ~SoundGenerator();
-
     // Initialize sound:
     bool init();
-
     // Play next sound:
     void play(vector<bool> toPlay);
 };

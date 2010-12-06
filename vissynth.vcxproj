@@ -87,18 +87,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bit_rep.cpp" />
+    <ClCompile Include="helper.cpp" />
     <ClCompile Include="image_generator.cpp" />
     <ClCompile Include="sound_generator.cpp" />
     <ClCompile Include="test_sound_generator.cpp" />
+    <ClCompile Include="test_view.cpp" />
     <ClCompile Include="view.cpp" />
     <ClCompile Include="vissynth.cpp" />
+    <ClCompile Include="widget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bit_rep.h" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="image_generator.h" />
     <ClInclude Include="sound_generator.h" />
     <ClInclude Include="view.h" />
     <ClInclude Include="vissynth.h" />
+    <ClInclude Include="widget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
