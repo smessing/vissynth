@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="vissynth">
+</Property><Property Name="Solution File" Value="C:\Users\Samuel Messing\Desktop\vissynth\vissynth.sln">
+</Property><Property Name="Date" Value="Monday, November 29, 2010">
+</Property><Property Name="Time" Value="19:41:39 PM">
+</Property></Properties><Event ErrorLevel="0" Project="vissynth" Source="vissynth.vcproj" Description="Converting project file 'C:\Users\Samuel Messing\Desktop\vissynth\vissynth.vcproj'.">
+</Event><Event ErrorLevel="1" Project="vissynth" Source="vissynth.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="vissynth" Source="vissynth.vcproj" Description="Done converting to new project file 'C:\Users\Samuel Messing\Desktop\vissynth\vissynth.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="vissynth" Source="vissynth.vcproj" Description="Converted">
+</Event></UpgradeLog>

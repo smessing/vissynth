@@ -28,9 +28,20 @@ void BitRep::display() {
     }
 }
 
-vector<bool> BitRep::getCurrentVector() { return map[currentCol]; }
+vector<bool> BitRep::getCurrentVector() { 
+    vector<bool> to_return = vector<bool>(rows);
+    int count = 0;
+    for (count = 0; count < rows; count++) {
+        to_return[count] = map[count][currentCol];
+    }
+    return to_return; 
+}
 
-void BitRep::incrementCol() { currentCol++; }
+void BitRep::incrementCol() { 
+    if (currentCol < cols - 1) {
+        currentCol++;
+    } 
+}
 
 bool BitRep::last() { 
     if (currentCol == cols - 1) return true;
